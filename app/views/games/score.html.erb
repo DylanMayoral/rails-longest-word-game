@@ -1,0 +1,14 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="d-flex flex-column justify-content-center align-items-center text-center">
+    <h1>Result</h1>
+
+    <% if @include && @found %>
+    <p>Yay! <strong><%= @word.downcase %></strong> can be built out of <%= @letters.join %></p>
+    <% elsif @include == false %>
+    <p>Those letters don't exist</p>
+    <% elsif @found == false %>
+    <p>Your word <strong><%= @word.downcase %></strong> doesn't exist</p>
+    <% end %>
+    <%= link_to "Try again!", "new" %>
+  </div>
+</div>

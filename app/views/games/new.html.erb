@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center align-items-center vh-100 flex-column">
+  <!-- Row for the letters, all in one line -->
+  <div class="d-flex justify-content-center mb-4">
+    <% @letters.each do |letter| %>
+      <div class="btn btn-info mx-2" style="width: 40px;">
+        <p class="m-0"><%= letter %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Form underneath the letters, centered on the screen -->
+  <div>
+   <form action="score" method="post" data-turbo="false">
+     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+     <%= hidden_field_tag :letters, @letters%>
+  <div class="form-group d-flex">
+    <input type="name" name="word" class="form-control" placeholder="make a word!">
+    <button type="submit" class="btn btn-primary ms-4">Submit</button>
+  </div>
+  </form>
+</div>
